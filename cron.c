@@ -238,7 +238,7 @@ void cron_schedule_task(void *args)
       xTaskCreatePinnedToCore(
       cron_schedule_job_launcher,   /* Function that implements the task. */
       "cron_schedule_job_launcher", /* Text name for the task. */
-      4096,                 /* Stack size in BYTES, not bytes. */
+      1024*10,                 /* Stack size in BYTES, not bytes. */
       (void *)job,          /* Job is passed into the task. */
       tskIDLE_PRIORITY + 2, /* Priority at which the task is created. */
       (NULL),               /* No need for the handle */
